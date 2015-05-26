@@ -1,22 +1,16 @@
-var leftPressed=false;
-var rightPressed=false;
+
+//Key Controls//
 var leftLifted=true;
 var rightLifted=true;
-var spacePressed=false;
 var spaceLifted=true;
-var rPressed = false;
 var rLifted=true;
-var sPressed=false;
 var sLifted=true;
-var cPressed=false;
 var cLifted=true;
-var downPressed= false;
 var downLifted = true;
-var gameStarted=false;
-var gameEnded=false;
 
-var cMode = false;
+var leftPressed, rightPressed, spacePressed, rPressed, sPressed, cPressed, downPressed, gameStarted, gameEnded, cMode;
 
+//Game State//
 var playerRotation = 0;
 var drops = {top:[], left:[], bot:[], right:[]};
 
@@ -46,46 +40,32 @@ function scale(){
 document.addEventListener("keydown", function(e){
 	switch(e.keyCode){
 		case 32:
-			if(spaceLifted){
-				spacePressed=true;
-				spaceLifted=false;
-			}
+			spacePressed=true;
+			spaceLifted=false;
 			break;
 		case 37:
-			if(leftLifted){
-				leftPressed=true;
-				leftLifted=false;
-			}
+			leftPressed=true;
+			leftLifted=false;
 			break;
 		case 39:
-			if(rightLifted){
-				rightPressed=true;
-				rightLifted=false;
-			}
+			rightPressed=true;
+			rightLifted=false;
 			break;
 		case 40:
-			if(downLifted){
-				downPressed=true;
-				downLifted=false;
-			}
+			downPressed=true;
+			downLifted=false;
 			break;
 		case 82:
-			if(rLifted){
-				rPressed=true;
-				rLifted=false;
-			}
+			rPressed=true;
+			rLifted=false;
 			break;
 		case 83:
-			if(sLifted){
-				sPressed=true;
-				sLifted=false;
-			}
+			sPressed=true;
+			sLifted=false;
 			break;
 		case 67:
-			if(cLifted){
-				cPressed=true;
-				cLifted=false;
-			}
+			cPressed=true;
+			cLifted=false;
 			break;
 	}
 }, false);
@@ -145,14 +125,9 @@ function updateBoard(){
 		downPressed = false;
 	}
 
-	var div = document.getElementById('board');
 	var deg = playerRotation*90;
 
-    div.style.webkitTransform = 'rotate('+deg+'deg)'; 
-    div.style.mozTransform    = 'rotate('+deg+'deg)'; 
-    div.style.msTransform     = 'rotate('+deg+'deg)'; 
-    div.style.oTransform      = 'rotate('+deg+'deg)'; 
-    div.style.transform       = 'rotate('+deg+'deg)'; 
+   	getElemAndRotate('board',deg);
 
     deg *= -1;
     getElemAndRotate('base-circle',deg);
@@ -362,9 +337,9 @@ function updateGame() {
 			resetGame();
 		}else{
 			gameStarted = true;
-			if(rPressed) rPressed = false;
-			if(spacePressed) spacePressed = false;
-			if(downPressed) downPressed = false;
+			rPressed = false;
+			spacePressed = false;
+			downPressed = false;
 		}
 	}
 
@@ -418,5 +393,8 @@ function resetGame(){
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+//Run the Game
 startGame();
 updateGame();
+
