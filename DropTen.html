@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DropTen</title>
+		<!-- <link rel="shortcut icon" id="favicon" /> -->
+		<!-- Styles -->
+		<link rel="stylesheet" href="stylesheets/style.css"></link>
+<!-- 		<meta name="viewport" content="height=300px"> -->
+		<meta name="description" content="Drop numbers, get to ten. Spin to win!">
+    	<meta name="keywords" content="Nigel, Munoz, nigelmnz, DropTen, Drop, Ten, nubmer, puzzle, reflex, arcade, addition, math, thinking, fast, think, brain, spin, win, rotate">
+
+		<!-- Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300' rel='stylesheet' type='text/css'>
+
+		<!-- Sounds -->
+		<audio src="assets/sound.wav" id="pingSound"></audio>
+		<audio src="assets/badsound.wav" id="badSound"></audio>
+	</head>
+	<body>
+		<div id="game">
+			<div id="info">
+				<div id="logo">DropTen</div>
+				<p>Press "Left/Right" to spin.</p>
+				<p>Press "Space/Down" to drop.</p>
+				<p>Press "R" to start.</p>
+				<p>Press "S" to switch modes.</p>
+				<br>
+				<h2>Numbers drop and add into your pods.</h2>
+				<br>
+				<h2>Get 10, up your score. Go over 10, it's gone.</h2>
+			</div>
+			<div id="info2">
+				<div id="timer">Time: 60</div>
+				<p id="highscore">Timed Best: 10</p>
+				<p id="infhigh">Infinite Best: 10</p>
+			</div>
+			<div id="drops-container">
+				<div id="drops"></div>
+			</div>
+			<div id="board-container">
+				<div id="board">
+					<div id="inner-board"></div>
+					<div id="inner-board2"></div>
+					<div id="base-circle"> 
+						<div id="score">10</div>
+					</div>
+					<div class="pod" id="pod0"><div class="val" id="valpod0">0</div></div>
+					<div class="pod" id="pod1"><div class="val" id="valpod1">0</div></div>
+					<div class="pod" id="pod2"><div class="val" id="valpod2">0</div></div>
+					<div class="pod" id="pod3"><div class="val" id="valpod3">0</div></div>
+				</div>
+			</div>
+
+
+		</div>
+		<script src="js/game.js"></script>
+	</body>
+	<footer>
+		<div id="foot">A game by <a href="/">NigelMNZ</a> (2015)</div>
+		<div id="foot">Check out the source on <a href="https://github.com/Nigelmnz/DropTen">GitHub</a></div>
+	</footer>
+</html>
