@@ -22,6 +22,7 @@ var curscore = 10;
 var highscore = 10;
 var infMode = false;
 var infHigh = 10;
+var lastScores = 10;
 
 var dropsClone = document.getElementById("drops").innerHTML;
 var boardClone = document.getElementById("board").innerHTML;
@@ -204,6 +205,7 @@ function startGame(){
 
 	highscore = localStorage.getItem("highscore");
 	infhigh = localStorage.getItem("infhigh");
+	lastScores = localStorage.getItem("lastScores");
 
 	if(highscore === null){
 		highscore = 10;
@@ -217,6 +219,11 @@ function startGame(){
 	}
 	document.getElementById("infhigh").innerHTML = "Infinite Best: " + infhigh;
 
+	if(lastScores === null){
+		lastScores = 10;
+		localStorage.setItem("lastScores",lastScore);
+	}
+	document.getElementById("lastScores").innerHTML = "Last Score: " + lastScores;
 
 }
 
@@ -377,6 +384,7 @@ function updateGame() {
 function resetGame(){
 	document.getElementById("drops").innerHTML = dropsClone;
 	document.getElementById("board").innerHTML = boardClone;
+	setLastScores();
 	gameStarted=false;
 	gameEnded=false;
 
@@ -392,6 +400,12 @@ function resetGame(){
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function setLastScores(){
+	lastScores = curscore;
+	document.getElementById("lastScores").innerHTML = "Last Score: " + lastScores;
+	localStorage.setItem("lastScores",lastScores);
 }
 
 //Run the Game
