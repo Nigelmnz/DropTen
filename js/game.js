@@ -221,7 +221,7 @@ function startGame(){
 
 	if(lastScores === null){
 		lastScores = 10;
-		localStorage.setItem("lastScores",lastScore);
+		localStorage.setItem("lastScores",lastScores);
 	}
 	document.getElementById("lastScores").innerHTML = "Last Score: " + lastScores;
 
@@ -411,4 +411,6 @@ function setLastScores(){
 //Run the Game
 startGame();
 updateGame();
+
+
 
